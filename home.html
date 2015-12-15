@@ -2,7 +2,22 @@
    
    <head>
       <title>Happy Christmas</title>
-      
+      <style type="text/css">
+	body {
+	    background-color: #FFF;
+	    margin: 30px;
+	    margin-top: 10px;
+	}
+	#container {
+	    width: 100%;
+	    height: 80%;
+	    border: 5px black solid;
+	    overflow: hidden;
+	    background-color: #F2F2F2;
+	    cursor: pointer;
+	}
+	
+      </style>
       <script type="text/javascript">
          <!--
             var imgObj = null;
@@ -57,12 +72,12 @@
    </head>
    
    <body  onclick="showCoords(event);">
-   
-      <form>
-         <img id="myImage" src="dot.png" style="widhth:50px;height:50px;"/>
-         <p>Click button below to move the image to right</p>
-         <input type="button" value="Click Me" onclick="showCoords(event);" />
-      </form>
+      <center>
+      <h2>Merry Christmas to all</h2><br><h3>Click anywhere to see fireworks</h3>
+      </center>
+      <div id="container">
+	
+      </div>
       
    </body>
 </html>
