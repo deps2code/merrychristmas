@@ -13,7 +13,8 @@
 	    height: 80%;
 	    border: 5px black solid;
 	    overflow: hidden;
-	    background-color: #F2F2F2;
+            background-image: url("backg.jpg");
+	    background-size: cover;
 	    cursor: pointer;
 	}
 	
@@ -28,7 +29,7 @@
                imgObj = document.getElementById('myImage');
                imgObj.style.position= 'relative'; 
                imgObj.style.left = parseInt(screen.availWidth/2) + 'px';
-			   imgObj.style.top = parseInt(screen.availHeight) + 'px';
+	       imgObj.style.top = parseInt(0.7*screen.availHeight) + 'px';
             }
             
 		function moveit(dx,dy){
@@ -76,7 +77,7 @@
       <h2>Merry Christmas to all</h2><br><h3>Click anywhere to see fireworks</h3>
       </center>
       <div id="container">
-	
+	   <img id="myImage" src="dot.png" style="widhth:10px;height:10px;"/>
       </div>
       
    </body>
