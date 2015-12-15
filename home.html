@@ -23,7 +23,8 @@
          <!--
             var imgObj = null;
             var count=0;
-			var animate;
+	    var animate;
+            var ganimate;
 			
             function init(){
                imgObj = document.getElementById('myImage');
@@ -32,19 +33,39 @@
 	       imgObj.style.top = parseInt(0.7*screen.availHeight) + 'px';
             }
             
+		function hidegif(img){
+			document.getElementById('container').removeChild(img);
+			clearTimeout(ganimate);
+		}
+		
+
+		
+		function showgif(){
+			var img = document.createElement("img");
+			img.src = "fire.gif";
+			img.style.position= 'relative';
+			img.style.left = parseInt(imgObj.style.left) + 'px';
+			img.style.top = parseInt(imgObj.style.top) + 'px';
+			document.getElementById('container').appendChild(img);
+			ganimate = setTimeout(function(){hidegif(img);},2100);
+			
+
+		}
+
+
 		function moveit(dx,dy){
 			if(count>=100){
 				clearTimeout(animate);
 				count=0;
+				showgif();
 				init();
 			
 			}
 			else{
 				count++;
-			
 				imgObj.style.left = parseInt(imgObj.style.left) + parseInt(dx) + 'px';
 				imgObj.style.top = parseInt(imgObj.style.top) + parseInt(dy) + 'px';
-				animate = setTimeout(function(){ moveit(dx,dy); },20);
+				animate = setTimeout(function(){ moveit(dx,dy); },10);
 			
 			}
 		}
@@ -61,7 +82,6 @@
 		function showCoords(event) {
 			var x = event.screenX;
 			var y = event.screenY;
-			var coords = "X coords: " + x + ", Y coords: " + y;
 			moveRight(x,y);
 			
 		}
