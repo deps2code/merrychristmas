@@ -1,0 +1,60 @@
+<html>
+   
+   <head>
+      <title>Happy Christmas</title>
+      
+      <script type="text/javascript">
+         <!--
+            var imgObj = null;
+            var count=0;
+			var animate;
+			
+            function init(){
+               imgObj = document.getElementById('myImage');
+               imgObj.style.position= 'relative'; 
+               imgObj.style.left = parseInt(screen.availWidth/2) + 'px';
+			   imgObj.style.top = parseInt(screen.availHeight) + 'px';
+            }
+            
+			function moveit(dx,dy){
+				if(count>=100){
+					clearTimeout(animate);
+					count=0;
+					init();
+					
+				}
+				else{
+					count++;
+					
+					imgObj.style.left = parseInt(imgObj.style.left) + parseInt(dx) + 'px';
+					imgObj.style.top = parseInt(imgObj.style.top) + parseInt(dy) + 'px';
+					animate = setTimeout(function(){ moveit(dx,dy); },20);
+					
+				}
+			}
+			
+            function moveRight(){
+			    var dx=100-screen.availWidth/2;
+				var dy=500-screen.availHeight;
+				dx=dx/100;
+				dy=dy/100;
+				moveit(dx,dy);
+                //imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+            }
+            
+            window.onload =init;
+         //-->
+      </script>
+      
+   </head>
+   
+   <body>
+   
+      <form>
+         <img id="myImage" src="dot.png" style="widhth:50px;height:50px;"/>
+         <p>Click button below to move the image to right</p>
+         <input type="button" value="Click Me" onclick="moveRight();" />
+      </form>
+      
+   </body>
+</html>
